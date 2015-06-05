@@ -6,6 +6,22 @@ public class Test{
 	public static void main(String[] args){
 		Test test = new Test();
 		test.testKthToLast();
+		test.testRemove();
+	}
+
+	public void testRemove(){
+		print("*testing remove");
+		ListNode head = constructLinkedList(5);
+		printList(head);
+		RemoveNode rn = new RemoveNode();
+		rn.remove(head.next.next);
+		printList(head);
+
+	}
+
+
+	public void print(String str){
+		System.out.println(str);
 	}
 
 	public void testKthToLast(){
