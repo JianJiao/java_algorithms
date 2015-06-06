@@ -9,7 +9,55 @@ public class Test{
 		test.testRemove();
 		test.testPartition();
 		test.testAddition();
+		test.testPalindrome();
+		test.testStack();
 	}
+
+	public void testStack(){
+		print("*testing stack");
+		Stack stack = new Stack();
+		stack.push(4);
+		stack.push(5);
+		stack.push(6);
+		Object item;
+		do{
+			item = stack.pop();
+			System.out.println(item);
+		}while(item != null);
+		print();
+	}
+
+	public void testPalindrome(){
+		print("*testing palindrome");
+		ListNode node = null;
+		Palindrome p = new Palindrome();
+		print(p.isPalindrome(node));
+		print(p.isPalindrome1(node));
+
+		node = new ListNode(3, null);
+		print(p.isPalindrome(node));
+		print(p.isPalindrome1(node));
+
+		node = constructLinkedList(9);
+		print(p.isPalindrome(node));
+		print(p.isPalindrome1(node));
+
+		node = new ListNode(1, null);
+		node = new ListNode(3, node);
+		node = new ListNode(4, node);
+		node = new ListNode(3, node);
+		node = new ListNode(1, node);
+		print(p.isPalindrome(node));
+		print(p.isPalindrome1(node));
+
+		print();
+	}
+
+
+	public void print(boolean b){
+		System.out.println(b);
+	}
+
 
 	public void testAddition(){
 		print("* testing addition");
@@ -159,7 +207,7 @@ public class Test{
 	* print the items of a linked list
 	* @param head, head of the linked list
 	**/
-	public void printList(ListNode head){
+	public static void printList(ListNode head){
 		ListNode node = head;
 		while(node!= null){
 			System.out.print(node.item + ", ");
