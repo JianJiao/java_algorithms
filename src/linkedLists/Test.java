@@ -19,7 +19,9 @@ public class Test{
 		ListNode n2 = constructLinkedList(9);
 		printList(n2);
 		ListNode node = add.add(n1, n2);
+		ListNode node1 = add.add1(n1, n2);
 		printList(node);
+		printList(node1);
 		ListNode nn = add.addForward(n1, n2);
 		printList(nn);
 
@@ -29,7 +31,9 @@ public class Test{
 		printList(less);
 		printList(node);
 		ListNode result = add.add(less, node);
+		ListNode result1 = add.add1(less, node);
 		printList(result);
+		printList(result1);
 		print();
 		printList(less);
 		printList(node);

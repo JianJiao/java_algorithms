@@ -2,6 +2,34 @@ package arrayAndStrings;
 
 public class Compression{
 
+	public String compress2(String str){
+		if(str == null){
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
+		char cur = str.charAt(0);
+		int count = 1;
+		// @note: changed i=0 to i=1; 
+		// you already set count to 1, so you should start from 1, second element
+		for(int i=1; i<str.length(); i++){
+			if(str.charAt(i) == cur ){
+				count++;
+			}else{
+				sb.append(cur);
+				sb.append(count);
+				cur = str.charAt(i);
+				count = 1;
+			}
+		}
+		// @note: remember to deal with the last character
+		sb.append(cur);
+		sb.append(count);
+		if(sb.length() < str.length()){
+			return sb.toString();
+		}else{
+			return str;
+		}
+	}
 
 	public String compress1(String str){
 		// get the count array for each new char

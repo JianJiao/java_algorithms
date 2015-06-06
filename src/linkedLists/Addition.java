@@ -41,6 +41,38 @@ public class Addition{
 
 
 	/**
+	* @better: 1. tertiary operation
+	* 2. use recursion to solve the problem
+	**/
+	public ListNode add1(ListNode n1, ListNode n2){
+		return add1(n1, n2, 0);
+	}
+
+	/**
+	* overload the method for a better external interface
+	**/
+	public ListNode add1(ListNode n1, ListNode n2, int offset){
+
+		if(n1 == null && n2 == null){
+			// @note: when offset is not 0, you still return a new node
+			if(offset == 0){
+				return null;
+			}else{
+				return new ListNode(1, null);
+			}
+		}
+		ListNode node = new ListNode(0, null);
+		int value = (n1 == null ? 0 : n1.item) + (n2 == null ? 0 : n2.item) + offset;
+		// @note the sequence of the following two statements
+		offset = (value < 10 ? 0 : 1);
+		value = value % 10;
+		node.item = value;
+		node.next = add1((n1 == null ? null : n1.next), (n2 == null ? null : n2.next), offset);
+		return node;
+	}
+
+
+	/**
 	* @assume: radix is 10
 	* every node.item is in [0, 9]
 	* number stored in reverse order

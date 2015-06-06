@@ -55,20 +55,26 @@ public class Test{
 		str = "lalalalala";
 		System.out.println(comp.compress(str));
 		System.out.println(comp.compress1(str));
+		System.out.println(comp.compress2(str));
+		System.out.println("end of testcase 1");
 		str = "abcdefgg";
 		System.out.println(comp.compress(str));
 		System.out.println(comp.compress1(str));
+		System.out.println(comp.compress2(str));
 		str = "pilipalapilia";
 		System.out.println(comp.compress(str));
 		System.out.println(comp.compress1(str));
+		System.out.println(comp.compress2(str));
 
 		str = "pppllliii";
 		System.out.println(comp.compress(str));
 		System.out.println(comp.compress1(str));
+		System.out.println(comp.compress2(str));
 
 		str = "fllliiiomgddddddd";
 		System.out.println(comp.compress(str));
 		System.out.println(comp.compress1(str));
+		System.out.println(comp.compress2(str));
 
 		System.out.println("\n *testing rotate");
 		int[][] img = new int[3][3];
