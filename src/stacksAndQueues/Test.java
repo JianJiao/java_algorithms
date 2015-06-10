@@ -11,6 +11,26 @@ public class Test{
 		test.testHanoi();
 		test.testStack();
 		test.testMyQueue();
+		test.testSortStack();
+	}
+
+	public void testSortStack(){
+		end();
+		start("sort stack");
+		SortStack ss = new SortStack();
+		ss.target.push(45);
+		ss.target.push(5);
+		ss.target.push(35);
+		ss.target.push(25);
+		ss.target.push(95);
+		ss.target.push(5);
+
+		ss.sort();
+
+		while(!ss.target.isEmpty()){
+			System.out.println(ss.target.pop());
+		}
+
 	}
 
 	public void testMyQueue(){
@@ -51,11 +71,13 @@ public class Test{
 		s.push(3);
 		s.push(4);
 		s.push(5);
+		System.out.println(s.peek());
 		System.out.println(s.pop());
 		System.out.println(s.pop());
 		System.out.println(s.isEmpty());
 		System.out.println(s.pop());
 		System.out.println(s.isEmpty());
+//		s.peek();
 
 		end();
 	}

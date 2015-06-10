@@ -11,6 +11,14 @@ public class Stack<T>{
 		return item;
 	}
 
+	public T peek(){
+		if(this.isEmpty()){
+			throw new StackEmptyException();
+		}else{
+			return head.item;
+		}
+	}
+
 	public T pop(){
 		if(head != null){
 			SListNode<T> oldHead = head;
