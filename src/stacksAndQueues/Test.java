@@ -9,6 +9,55 @@ public class Test{
 		// test.testStackWithMin();
 		test.testSetOfStacks();
 		test.testHanoi();
+		test.testStack();
+		test.testMyQueue();
+	}
+
+	public void testMyQueue(){
+		end();
+		start("my queue");
+
+		MyQueue<Integer> mq = new MyQueue<Integer>();
+		mq.enqueue(3);
+		mq.enqueue(3);
+		mq.enqueue(2);
+		mq.enqueue(1);
+		System.out.println(mq.dequeue());
+		System.out.println(mq.dequeue());
+		mq.enqueue(0);
+		mq.enqueue(9);
+		System.out.println(mq.dequeue());
+		System.out.println(mq.dequeue());
+		System.out.println(mq.dequeue());
+		System.out.println(mq.dequeue());
+		mq.enqueue(0);
+		mq.enqueue(3);
+		System.out.println(mq.dequeue());
+		System.out.println(mq.dequeue());
+		mq.enqueue(0);
+		System.out.println(mq.dequeue());
+		mq.enqueue(3);
+		System.out.println(mq.dequeue());
+
+
+		end();
+	}
+	
+
+	public void testStack(){
+		end();
+		start("stack");
+		Stack<Integer> s = new Stack<Integer>();
+		s.push(3);
+		s.push(4);
+		s.push(5);
+		System.out.println(s.pop());
+		System.out.println(s.pop());
+		System.out.println(s.isEmpty());
+		System.out.println(s.pop());
+		System.out.println(s.isEmpty());
+
+		end();
 	}
 
 

@@ -17,7 +17,15 @@ public class Stack<T>{
 			head = head.next;
 			return oldHead.item;
 		}else{
-			return null;
+			throw new StackEmptyException();
+		}
+	}
+
+	public boolean isEmpty(){
+		if(head == null){
+			return true;
+		}else{
+			return false;
 		}
 	}
 
