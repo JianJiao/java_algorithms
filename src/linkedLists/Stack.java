@@ -1,6 +1,8 @@
 package linkedLists;
 
 public class Stack{
+	// we call it head here, but it is not a head in the 
+	// linked list perspective, it is actually the tail
 	protected SListNode head;
 
 	public Object push(Object item){

@@ -11,6 +11,26 @@ public class Test{
 		test.testAddition();
 		test.testPalindrome();
 		test.testStack();
+		test.testCircular();
+	}
+
+	public void testCircular(){
+		print("*testing circular");
+		ListNode end= new ListNode(1, null);
+		ListNode node = new ListNode(2, end);
+		ListNode begin = new ListNode(3, node);
+		node = new ListNode(4, begin);
+		node = new ListNode(5, node);
+		end.next = begin;
+
+		Circular cir = new Circular();
+		ListNode result = cir.loopBeginning(node);
+		System.out.println(result.item);
+
+		result = cir.loopBeginning(node);
+		System.out.println(result.item);
+
+		print();
 	}
 
 	public void testStack(){
