@@ -12,6 +12,40 @@ public class Test{
 		test.testStack();
 		test.testMyQueue();
 		test.testSortStack();
+		test.testAnimalShelter();
+	}
+
+	public void testAnimalShelter(){
+		end();
+		start("animal shelter");
+		AnimalShelter as = new AnimalShelter();
+		Dog dog = new Dog(1);
+		as.enqueue(dog);
+		dog = new Dog(3);
+		as.enqueue(dog);
+
+		Cat cat = new Cat(2);
+		as.enqueue(cat);
+		cat = new Cat(9);
+		as.enqueue(cat);
+		dog = new Dog(8);
+		as.enqueue(dog);
+		Animal ani = as.dequeueAny();
+		System.out.println(ani + " " +  ani.number);
+		ani = as.dequeueDog();
+		System.out.println(ani + " " +  ani.number);
+
+		ani = as.dequeueCat();
+		System.out.println(ani + " " +  ani.number);
+
+		ani = as.dequeueDog();
+		System.out.println(ani + " " +  ani.number);
+
+
+		ani = as.dequeueCat();
+		System.out.println(ani + " " +  ani.number);
+
+		end();
 	}
 
 	public void testSortStack(){
