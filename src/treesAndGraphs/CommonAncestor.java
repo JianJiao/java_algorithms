@@ -1,6 +1,61 @@
-package treesAndQueues;
+package treesAndGraphs;
 
 public class CommonAncestor{
+
+
+	/**
+	*	@better: a yet simpler version: 
+	* 	+ use ? : more
+	* 	+ check for null instead of deciding p or q one by one
+	*/
+	public BinaryTreeNode commonAnce1(BinaryTreeNode root, BinaryTreeNode p, BinaryTreeNode q){
+		if(root == null || p == null || q == null){
+			return null;
+		}
+		boolean resultL = hasNode(p, root);
+		boolean resultR = hasNode(q, root);
+		if(!resultL|| !resultR){
+			return null;
+		}
+		return common1(root, p, q);
+
+	}
+
+	public BinaryTreeNode common1(BinaryTreeNode node, BinaryTreeNode p, BinaryTreeNode q){
+		if(p == null || q == null){
+			throw new IllegalArgumentException("p and q cannot be null");
+		}
+		// stop creteria
+		if(node == null){
+			return null;
+		}
+		// check left
+		BinaryTreeNode left = common1(node.leftChild, p, q);
+		// short circuit to save time, this is not logically necessary
+		if( left!= null && left != p && left != q){
+			return left;
+		}
+		// check right 
+		BinaryTreeNode right = common1(node.rightChild, p, q);
+		if(right != null && right != p && right != q){
+			return right;
+		}
+		// check self, found p, q on diff br
+		if(left != null && right != null){
+			return node;
+		}
+		// not on diff br,  then found p or q on this
+		if(node == p || node == q){
+			return node;
+		}
+		// not found on this, then if nothing found on left, right
+		if(left == null && right == null){
+			return null;
+		}
+		// at least one br found sth
+		// then return that
+		return left == null ? right : left;
+	}
 
 
 
@@ -11,10 +66,12 @@ public class CommonAncestor{
 			return null;
 		}
 		// first check if p and q are both in the tree
-		if(!hasNode(root, p) || !hasNode(root, q)){
+		// @note: the sequnce of params conform the the signature of the method
+		if(!hasNode(p, root) || !hasNode(q , root)){
+			System.out.println("not");
 			return null;
 		}
-		return BinaryTreeNode result = common(root, p, q);
+		return common(root, p, q);
 	}
 
 	protected boolean hasNode(BinaryTreeNode node, BinaryTreeNode root){
@@ -22,12 +79,12 @@ public class CommonAncestor{
 			return false;
 		}
 		// visit left recursively
-		boolean leftR = hasNode(node, node.leftChild);
+		boolean leftR = hasNode(node, root.leftChild);
 		if(leftR == true){
 			return true;
 		}
 		// visit right recursively
-		boolean rightR = hasNode(node, node.rightChild);
+		boolean rightR = hasNode(node, root.rightChild);
 		if(rightR == true){
 			return true;
 		}

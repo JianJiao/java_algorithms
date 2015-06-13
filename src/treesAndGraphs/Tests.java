@@ -15,6 +15,65 @@ public class Tests{
 		test.testIsBST2();
 		test.testIsBST3();
 		test.testNext();
+		test.testCommonAncestor();
+		test.testCommonAncestor1();
+		test.testIsSubtree();
+	}
+
+	public void testIsSubtree(){
+		end();
+		start("is subtree");
+		IsSubtree is = new IsSubtree();
+		ArrayToBinary atb = new ArrayToBinary();
+		int[] arr = {0,1,2,3,4,5,6,7,8,9};
+		BinaryTreeNode root = atb.getTree(arr);
+
+		int[] arr1 = {0,1,2,3,4};
+		BinaryTreeNode root1 = atb.getTree(arr1);
+
+		System.out.println(is.isSubtree(root, root1));
+
+
+		end();
+	}
+
+	public void testCommonAncestor1(){
+		end();
+		start("common ancestor1");
+		CommonAncestor ca = new CommonAncestor();
+		ArrayToBinary atb = new ArrayToBinary();
+		int[] arr = {0,1,2,3,4,5,6,7,8,9};
+		BinaryTreeNode root = atb.getTree(arr);
+		BinaryTreeNode node = ca.commonAnce1(root, root.leftChild, root.leftChild);
+		System.out.println(node.item);
+		node = ca.commonAnce(root, root.leftChild, root.rightChild);
+		System.out.println(node.item);
+		node = ca.commonAnce1(root, root.leftChild.leftChild.leftChild, root.leftChild.rightChild.leftChild);
+		System.out.println(node.item);
+
+
+
+		end();
+	}
+
+
+	public void testCommonAncestor(){
+		end();
+		start("common ancestor");
+		CommonAncestor ca = new CommonAncestor();
+		ArrayToBinary atb = new ArrayToBinary();
+		int[] arr = {0,1,2,3,4,5,6,7,8,9};
+		BinaryTreeNode root = atb.getTree(arr);
+		BinaryTreeNode node = ca.commonAnce(root, root.leftChild, root.leftChild);
+		System.out.println(node.item);
+		node = ca.commonAnce(root, root.leftChild, root.rightChild);
+		System.out.println(node.item);
+		node = ca.commonAnce(root, root.leftChild.leftChild.leftChild, root.leftChild.rightChild.leftChild);
+		System.out.println(node.item);
+
+
+
+		end();
 	}
 
 	public void testNext(){
