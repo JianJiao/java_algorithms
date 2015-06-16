@@ -18,6 +18,45 @@ public class Tests{
 		test.testCommonAncestor();
 		test.testCommonAncestor1();
 		test.testIsSubtree();
+		test.testPathSumTo();
+		test.testPathSumTo1();
+		// test.testMtoN();
+	}
+
+
+	// public void testMtoN(){
+	// 	end();
+	// 	start("M to N");
+	// 	MtoN mtn = new MtoN();
+	// 	int N = 0b10010011110100100101111111;
+	// 	int M = 0b101001;
+	// 	System.out.println(Integer.toBinaryString(mtn.insertTo(M, N, 2, 7)));
+
+	// 	end();
+	// }
+
+	public void testPathSumTo1(){
+		end();
+		start("path sum to1");
+		PathSumTo pst = new PathSumTo();
+		ArrayToBinary atb = new ArrayToBinary();
+		int[] arr = {0,1,2,3,4,5,6,7,8,9};
+		BinaryTreeNode root = atb.getTree(arr);
+		pst.pathSumTo1(8, root);
+
+		end();
+	}
+
+	public void testPathSumTo(){
+		end();
+		start("path sum to");
+		PathSumTo pst = new PathSumTo();
+		ArrayToBinary atb = new ArrayToBinary();
+		int[] arr = {0,1,2,3,4,5,6,7,8,9};
+		BinaryTreeNode root = atb.getTree(arr);
+		pst.pathSumTo(10, root);
+
+		end();
 	}
 
 	public void testIsSubtree(){
