@@ -14,6 +14,103 @@ public class Tests{
 		test.testSubSets();
 		test.testPermutation();
 		test.testParentheses();
+		test.testPaintFill();
+		test.testCents();
+		test.testEightQueen();
+		test.testBoxes();
+		test.testExp();
+		// test.testExpression();
+	}
+
+	// public void testExpression(){
+	// 	end();
+	// 	start("expression");
+	// 	Expression exp = new Expression();
+	// 	System.out.println(exp.count("0|1&1&0", '1'));
+	// 	end();
+	// }
+
+	public void testExp(){
+		end();
+		start("exp");
+		Exp exp = new Exp();
+		int result = exp.count("1|1&0&0", true);
+		// int result = exp.count("1|1", false);
+		System.out.println(result);
+		end();
+	}
+
+	public void testBoxes(){
+		end();
+		start("boxes");
+		Boxes bs = new Boxes();
+		Box[] bss = new Box[3];
+		for(int i = 0; i < 3; i++){
+			//@problem here: what is height 0?
+			Box b = new Box();
+			b.height = i;
+			b.width = i;
+			b.length = i;
+			bss[i] = b;
+		}
+		Result result = bs.heighest(bss);
+
+		System.out.println(result.l.get(0).height);
+		System.out.println(result.l.get(1).height);
+
+
+		end();
+	}
+
+	public void testEightQueen(){
+		end();
+		start("eight queen");
+		EightQueen eq = new EightQueen();
+		eq.printQ();
+		end();
+	}
+
+	public void testCents(){
+		end();
+		start("cents");
+		Cents cents = new Cents();
+		int result = cents.cents(11);
+		System.out.println(result);
+
+		end();
+	}
+
+	public void testPaintFill(){
+		end();
+		start("paint fill");
+		PaintFill pf = new PaintFill();
+		int[][] screen = new int[4][4];
+		screen[0][1] = 1;
+		screen[0][2] = 1;
+		screen[1][0] = 1;
+		screen[1][2] = 1;
+		screen[1][3] = 1;
+		screen[2][0] = 1;
+		screen[2][3] = 1;
+		for(int i = 0; i < 4; i++){
+			screen[3][i] = 1;
+		}
+		printArray(screen);
+		pf.paintFill(screen, 2, 1, 3);
+		System.out.println();
+		printArray(screen);
+		end();
+	}
+
+	public void printArray(int[][] arr){
+		int rowDim = arr.length;
+		int colDim = arr[0].length;
+		for(int i = 0; i < rowDim; i++){
+			for(int j = 0; j < colDim; j++){
+				System.out.print(arr[i][j] + ", ");
+			}
+			System.out.println();
+		}
 	}
 
 	public void testParentheses(){
