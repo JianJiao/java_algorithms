@@ -9,6 +9,55 @@ public class Tests{
 		test.testSearchRoastedSorted();
 		test.testFindWithEmptyString();
 		test.testSearchSortedMatrix();
+		test.testCircuit();
+		test.testIntStream();
+		test.testIntStreamN();
+	}
+
+	public void testIntStreamN(){
+		end();
+		start("int stream new");
+		IntStreamN isn = new IntStreamN();
+		for(int i = 0; i < 5; i++){
+			isn.track(i);
+		}
+		isn.track(3);
+		isn.track(3);
+		int result = isn.getRankOfNumber(3);
+		System.out.println(result);
+
+
+		end();
+	}
+
+	public void testIntStream(){
+		end();
+		start("int stream");
+		IntStream is = new IntStream();
+		is.track(4);
+		is.track(2);
+		is.track(9);
+		is.track(3);
+		is.track(2);
+		System.out.println(is.getRankOfNumber(3));
+
+
+		end();
+	}
+
+	public void testCircuit(){
+		end();
+		start("circuit");
+		Person[] pers = new Person[4];
+		for(int i = 0; i < 4; i ++){
+			pers[i] = new Person(i + 1, i + 1);
+		}
+
+		pers[3] = new Person(3, 3);
+		Circuit c = new Circuit();
+		int result = c.maxTower(pers);
+		System.out.println(result);
+		end();
 	}
 
 	public void testSearchSortedMatrix(){

@@ -52,6 +52,9 @@ public class Boxes{
 					// @note: should compare and then assign
 					// if this one is bigger, change to this one
 					if(childResult.height + boxes[idx].height > result.height){
+						// @note: I think there is a problem: should delete the previous one
+						// a better way would be first deal with all children: find the max among 
+						// all children, and then construct the result
 						result.l.addAll(childResult.l);
 						result.height = childResult.height + boxes[idx].height;
 					}
