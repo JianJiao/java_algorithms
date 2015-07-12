@@ -19,6 +19,22 @@ public class Test{
 		test.testTrailingZeros();
 		test.testMax();
 		test.testSortPartial();
+		test.testPhrase();
+	}
+
+	public void testPhrase(){
+		end();
+		start("basicPhrase");
+		PhraseOfInteger poi = new PhraseOfInteger();
+		String result = poi.basicPhrase(908).toString();
+		System.out.println(result);
+
+		end();
+		start("print");
+		poi.print(-209800207);
+
+
+		end();
 	}
 
 
