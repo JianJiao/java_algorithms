@@ -18,6 +18,22 @@ public class Test{
 		Test test = new Test();
 		test.testTrailingZeros();
 		test.testMax();
+		test.testSortPartial();
+	}
+
+
+	public void testSortPartial(){
+		end();
+		start("sort partial");
+		SortPartial sp = new SortPartial();
+		int[] ints = {1, 2, 3, 5, 4, 6, 2, 20, 7, 13, 7, 15, 18, 20, 20, 20, 50};
+		// @note: use the class, not the instance
+		SortPartial.Result result = sp.find(ints);
+		System.out.println(result.m);
+		System.out.println(result.n);
+
+
+		end();
 	}
 
 	public void testMax(){
