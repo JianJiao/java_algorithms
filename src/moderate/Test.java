@@ -1,4 +1,5 @@
 package moderate;
+import java.util.List;
 
 public class Test{
 	public static void main(String[] args){
@@ -20,6 +21,51 @@ public class Test{
 		test.testMax();
 		test.testSortPartial();
 		test.testPhrase();
+		test.testSum();
+		test.testRand();
+		test.testSumTo();
+	}
+
+	public void testSumTo(){
+		end();
+		start("sum to");
+		SumTo st = new SumTo();
+		int[] arr = {1,2,3,4,5,6,7,2,3,2,2,1,1};
+		List<int[]> list = st.find(arr, 4);
+		for(int[] result : list){
+			for(int i = 0; i < 2; i++){
+				System.out.print(result[i] + ", ");
+			}
+			System.out.println();
+		}
+
+
+
+		end();
+	}
+
+	public void testRand(){
+		end();
+		start("rand");
+		Rand rand = new Rand();
+		int result = rand.rand7();
+		System.out.println(result);
+
+
+		end();
+	}
+
+	public void testSum(){
+		end();
+		start("sum");
+		ContigiousSum cs = new ContigiousSum();
+		int[] arr = {1,2,-3, -5, 4, -3, 5, -9, 8};
+		int result = cs.contigiousSum(arr);
+		result = cs.contigiousSum1(arr);
+		System.out.println(result);
+
+
+		end();
 	}
 
 	public void testPhrase(){
