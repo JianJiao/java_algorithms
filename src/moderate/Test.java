@@ -24,6 +24,39 @@ public class Test{
 		test.testSum();
 		test.testRand();
 		test.testSumTo();
+		test.testConvert();
+	}
+
+	public void testConvert(){
+		end();
+		start("convert");
+		Convert c = new Convert();
+		BiNode root = createBST();
+		BiNode head = c.convert(root);
+		BiNode node = head;
+		while(node != null){
+			System.out.println(node.data);
+			node = node.node2;
+		}
+
+
+
+		end();
+	}
+
+	public BiNode createBST(){
+		BiNode node1 = new BiNode(null, null, 1);
+		BiNode node2 = new BiNode(null, null, 2);
+		BiNode node3 = new BiNode(null, null, 3);
+		BiNode node4 = new BiNode(null, null, 4);
+		BiNode node5 = new BiNode(null, null, 5);
+		BiNode node6 = new BiNode(null, null, 6);
+		node4.node1 = node2;
+		node4.node2 = node6;
+		node2.node1 = node1;
+		node2.node2 = node3;
+		node6.node1 = node5;
+		return node4;
 	}
 
 	public void testSumTo(){
