@@ -4,6 +4,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 
+/**
+* @wrong: I think this is still problematic: should also check if second is 
+* in the map before you proceed. For greedy algo will expand, included elements
+* should not be counted again
+*/
+
 public class WordLadderImproved{
 
 	public ArrayList<String> getPath(String start, String end, HashSet<String> set){
@@ -40,7 +46,12 @@ public class WordLadderImproved{
 			String first = queue.remove();
 			ArrayList<String> children = getOneEditWords(first);
 			for(String second : children){
+				// this word is in the set of words
 				if(set.contains(second)){
+					/**
+					* @note: should check here if this word is already in the map, if it is,
+					* we just ignore it. Because it has already been checked.
+					*/
 					map.put(second, first);
 					if(second.equals(end)){
 						return true;

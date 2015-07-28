@@ -2,6 +2,12 @@ package moderate;
 import java.util.HashSet;
 import java.util.Iterator;
 
+/**
+*	@wrong: the solotion is wrong!
+* shouldn't use set, it exclude duplicates. 
+* you could use chained hashtable or arraylist
+*/
+
 public class Game{
 
 	public Result evaluate(char[] solution, char[] guess){

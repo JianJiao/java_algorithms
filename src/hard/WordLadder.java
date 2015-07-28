@@ -4,6 +4,10 @@ import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+
+/**
+* @attentionFirst!: there is an improved version in another file
+*/
 public class WordLadder{
 
 
